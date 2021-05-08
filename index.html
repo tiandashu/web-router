@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <div id="app"></div>
+  <ul class="btn-list">
+    <li data-url="/">push Index</li>
+    <li data-url="/hash">push Hash</li>
+    <li data-url="/history">push History</li>
+    <li data-url="1">前进</li>
+    <li data-url="-1">后退</li>
+  </ul>
+  <span class="replace-btn">replace Index</span>
+</body>
+
+</html>
+<script>
+  console.log(777, WebRouter)
+  const router = new WebRouter({
+    mode: 'hash',
+  })
+
+  document.querySelector('.btn-list').addEventListener('click', e => {
+    const event = e || window.event;
+    if (event.target.tagName === 'LI') {
+      const url = event.target.dataset.url;
+      !url.indexOf('/') ? router.push(url) : router.go(url);
+    }
+  });
+
+  document.querySelector('.replace-btn').addEventListener('click', e => {
+    router.replace('/');
+  });
+</script>
