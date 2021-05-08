@@ -4,9 +4,8 @@ import {HistoryRouter} from './history'
 
 
 export default class WebRouter {
-  constructor({mode = 'hash', routeList = ROUTELIST }) {
-    this.mode = mode
-    this.router = mode === 'hash' ? new HashRouter(routeList) : new HistoryRouter(routeList)
+  constructor({el = '#app', mode = 'hash', routeList = ROUTELIST }) {
+    this.router = mode === 'hash' ? new HashRouter(el, routeList) : new HistoryRouter(el, routeList)
   }
 
   push(path) {

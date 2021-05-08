@@ -1,7 +1,7 @@
 import {BaseRouter} from './base'
 export class HistoryRouter extends BaseRouter {
-  constructor(routeList) {
-    super(routeList)
+  constructor(el, routeList) {
+    super(el, routeList)
     
     this.handler()
     window.addEventListener('popstate', () => {

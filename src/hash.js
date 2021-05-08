@@ -1,8 +1,8 @@
 import {BaseRouter} from './base'
 
 export class HashRouter extends BaseRouter {
-  constructor(routeList) {
-    super(routeList)
+  constructor(el, routeList) {
+    super(el, routeList)
     // 首次渲染
     this.handler()
     // hash 变更重新渲染

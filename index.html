@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <div id="app"></div>
+  <div id="view"></div>
   <ul class="btn-list">
     <li data-url="/">push Index</li>
     <li data-url="/hash">push Hash</li>
@@ -23,6 +23,7 @@
 </html>
 <script>
   const router = new WebRouter({
+    el: '#view',
     mode: 'hash',
   })
 
