@@ -4,7 +4,9 @@ export class HistoryRouter extends BaseRouter {
     super(routeList)
     
     this.handler()
-    window.addEventListener('popstate', this.handler)
+    window.addEventListener('popstate', () => {
+      this.handler()
+    })
   }
 
   handler() {
@@ -12,7 +14,7 @@ export class HistoryRouter extends BaseRouter {
   }
 
   getState() {
-    const path = window.location.pathname
+    let path = window.location.pathname
     path = path ? path : '/'
 
     return path

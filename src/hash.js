@@ -6,7 +6,9 @@ export class HashRouter extends BaseRouter {
     // 首次渲染
     this.handler()
     // hash 变更重新渲染
-    window.addEventListener('hashchange', this.handler)
+    window.addEventListener('hashchange', () => {
+      this.handler()
+    })
   }
 
   // 渲染
@@ -30,12 +32,12 @@ export class HashRouter extends BaseRouter {
     window.location.hash = path;
   }
 
-  replace() {
+  replace(path) {
     // 如果base（#前面）发生变化会导致页面刷新，path（#后面）部分变化不会导致页面变化
     window.location.replace(this.getUrl(path));
   }
 
-  go() {
+  go(n) {
     window.history.go(n);
   }
 }
